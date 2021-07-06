@@ -4,6 +4,10 @@ let refData = {
     rows: 10
 }
 
+let mainSection = createElement("div");
+mainSection.setAttribute("id","mainSection");
+document.body.append(mainSection);
+
 let table = createElement("table");
 table.classList.add("table");
 let thead = createElement("thead");
@@ -15,7 +19,7 @@ let th3 = createElement("th","EMAIL");
 tr.append(th1,th2,th3);
 thead.append(tr);
 table.append(thead);
-document.getElementById("mainSection").append(table);
+mainSection.append(table);
 
 let jsonData = new XMLHttpRequest();
 
@@ -106,7 +110,7 @@ function loadButton(counts){
     lastButton.addEventListener("click",()=>reload(Math.ceil(refData.pageData.length/refData.rows))); 
     buttondiv.append(lastButton);
 
-    document.getElementById("mainSection").append(buttondiv);  
+    mainSection.append(buttondiv);  
 }
 
 function createElement(elementName,value = ""){
